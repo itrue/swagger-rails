@@ -11,6 +11,7 @@ class Admin::DocsController < Admin::BaseController
   end
 
   def new
+    @doc ||= current_user.docs.new(params[:doc])
   end
 
   def edit
