@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :docs
+  has_many :doc_users
+  has_many :cooperated_docs, :through => :doc_users, :source => :doc
 
   def self.create_by_omniauth(hash, current_user)
     hash = ActiveSupport::HashWithIndifferentAccess.new hash
@@ -25,5 +27,9 @@ class User < ActiveRecord::Base
   def password_required?
     return false if facebook_id
     true
+  end
+
+  def owned?(doc)
+    doc.user_id == id
   end
 end
