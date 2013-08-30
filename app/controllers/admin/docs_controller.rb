@@ -18,6 +18,7 @@ class Admin::DocsController < Admin::BaseController
   end
 
   def create
+    @doc = current_user.docs.new(params[:doc])
     if @doc.save
       redirect_to(params[:redirect_to] || admin_doc_path(@doc), :notice => "create success")
     else
