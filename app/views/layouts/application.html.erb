@@ -21,22 +21,20 @@
     <% end %>
     <%= render_crumbs :format => :html_list, :ul_class => :breadcrumb, :separator => " > " %>
     <div class="content">
-      <div class="row">
         <%= yield %>
         <%= yield (:sidebar) %>
-      </div> 
-  
+
     </div>
 
-    <%= render :partial => "common/footer" %>    
+    <%= render :partial => "common/footer" %>
   </div>
 
 
 
-  
 
-  <%= render :partial => "common/bootstrap_modal" %>    
- 
+
+  <%= render :partial => "common/bootstrap_modal" %>
+
   <%= javascript_include_tag "application" %>
 
   <%= yield :javascripts %>
