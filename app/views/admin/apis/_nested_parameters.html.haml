@@ -4,7 +4,7 @@
 #form_parameter
   = form.fields_for :parameters do |form_parameter|
     .form-inline
-      = form_parameter.link_to_remove :class => "btn btn-mini" do
+      = form_parameter.link_to_remove :class => "btn btn-mini btn-danger" do
         %i.icon-minus
         Delete
       = form_parameter.input_field :param_type, :as => :select, :collection => Parameter::PARAM_TYPES, :class => "input-small", :include_blank => "-- parameter type --"

@@ -13,10 +13,11 @@
         %td
           = render :partial => "sort_buttons", :as => :button_urls, :object => resource_button_urls(resource)
         %td.last
-          = link_to edit_admin_doc_resource_path(resource.doc, resource), :class => "btn btn-mini" do
-            %i.icon-pencil
-            Edit
-          - if can?(:destroy, resource)
-            = link_to admin_doc_resource_path(resource.doc, resource), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
-              %i.icon-white.icon-remove
-              Delete
+          .btn-group
+            = link_to edit_admin_doc_resource_path(resource.doc, resource), :class => "btn btn-mini" do
+              %i.icon-pencil
+              Edit
+            - if can?(:destroy, resource)
+              = link_to admin_doc_resource_path(resource.doc, resource), :class => "btn btn-mini btn-danger", :method => :delete, :confirm => "confirm delete?" do
+                %i.icon-white.icon-remove
+                Delete
